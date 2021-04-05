@@ -33,5 +33,5 @@ More examples can be found [`here.`](/examples)
 
 ### Dependencies
 
-[`go-env`](https://github.com/syndbg/goenv) For marshalling from the environment.
+[`go-env`](https://github.com/syndbg/goenv) For marshalling from the environment. </br>
 [`validator`](https://github.com/go-playground/validator) For validation.
