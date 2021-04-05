@@ -1,33 +1,37 @@
-<h1 align="center">Config</h1>
+<h1 align="center">Config 📃</h1>
 <p>
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
 </p>
 
-> A package to handle merged config from the environment & JSON files.
+> Easily handle JSON and environment based config in one.
 
 ## Example
 
 ```go
-// Define a single config struct as a mixture of JSON and environment
-// based parameters.
+// Define your projects configuration.
 // 
 // Validation is handled by https://github.com/go-playground/validator
 type OurConfig struct {
-    FromJSON `json:"from_json" validate:"required"`
-    FromEnv `env:"FROM_ENV" validate:"required"`
+    FromJSON string `json:"from_json" validate:"required"`
+    FromEnv  string `env:"FROM_ENV" validate:"required"`
 }
 
-// Specify the location of your configuration files, and the current
-// environment.
-//
-// config will search for a file within Path that matches `config.<environment>.json`
+// Specify where to find your projects configuration files.
 var cfg OurConfig
 err := config.NewFromFile(&config.Config{
     Path:        "./config",
     Environment: config.Local,
 }, &cfg)
 
-// err will hold any validation errors.
+// If there were no validation errors cfg will now be populated with values from 
+// the local JSON file as well as the environment.
 ```
+
+More examples can be found [`here.`](/examples)
+
+### Dependencies
+
+[`go-env`](https://github.com/syndbg/goenv) For marshalling from the environment.
+[`validator`](https://github.com/go-playground/validator) For validation.
