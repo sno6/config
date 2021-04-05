@@ -5,7 +5,7 @@
   </a>
 </p>
 
-> Easily handle JSON and environment based config in one.
+> Easily handle JSON and environment based config in one go.
 
 ## Example
 
